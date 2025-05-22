@@ -1,0 +1,62 @@
+---
+interface BusinessHours {
+  day: string;
+  hours: string;
+  isClosed?: boolean;
+}
+
+interface Props {
+  title?: string;
+  hours: BusinessHours[];
+  timezone?: string;
+}
+
+const { 
+  title = "Horaires d'ouverture",
+  hours = [
+    { day: "Lundi", hours: "9h00 - 18h00" },
+    { day: "Mardi", hours: "9h00 - 18h00" },
+    { day: "Mercredi", hours: "9h00 - 18h00" },
+    { day: "Jeudi", hours: "9h00 - 18h00" },
+    { day: "Vendredi", hours: "9h00 - 18h00" },
+    { day: "Samedi", hours: "10h00 - 16h00" },
+    { day: "Dimanche", hours: "Fermé", isClosed: true }
+  ],
+  timezone = "Europe/Paris"
+} = Astro.props;
+
+const today = new Date().toLocaleDateString('fr-FR', { weekday: 'long' });
+---
+
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-gray-900 mb-4">
+        {title}
+      </h2>
+      <p class="text-xl text-gray-600">
+        Heure locale : {new Date().toLocaleTimeString('fr-FR', { timeZone: timezone })}
+      </p>
+    </div>
+
+    <div class="max-w-2xl mx-auto">
+      <div class="bg-gray-50 rounded-xl p-8 shadow-lg">
+        <div class="space-y-4">
+          {hours.map((schedule) => (
+            <div class="flex justify-between items-center py-2 border-b border-gray-200 last:border-0">
+              <span class={`font-medium ${schedule.day.toLowerCase() === today.toLowerCase() ? 'text-blue-600' : 'text-gray-700'}`}>
+                {schedule.day}
+                {schedule.day.toLowerCase() === today.toLowerCase() && (
+                  <span class="ml-2 text-sm text-blue-600">(Aujourd'hui)</span>
+                )}
+              </span>
+              <span class={schedule.isClosed ? 'text-red-500' : 'text-gray-600'}>
+                {schedule.hours}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 

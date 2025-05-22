@@ -1,16 +1,43 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Footer from '../components/Footer.astro';
+import Services from '../components/Services.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Map from '../components/Map.astro';
+import BusinessHours from '../components/BusinessHours.astro';
+import Pricing from '../components/Pricing.astro';
+import { defaultConfig } from '../config/site';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+	<Header />
+	<main>
+		<Hero 
+			title="Transformez vos idées en réalité"
+			description="Nous créons des solutions web innovantes et performantes pour propulser votre entreprise vers le succès."
+			ctaText="Démarrer un projet"
+			ctaLink="/contact"
+			imageSrc="/images/hero-illustration.svg"
+		/>
+		<Services config={defaultConfig} />
+		<Testimonials config={defaultConfig} />
+		<Map 
+			title={defaultConfig.location.title}
+			address={defaultConfig.location.address}
+			mapUrl={defaultConfig.location.mapUrl}
+		/>
+		<BusinessHours
+			title={defaultConfig.businessHours.title}
+			hours={defaultConfig.businessHours.hours}
+			timezone={defaultConfig.businessHours.timezone}
+		/>
+		<Pricing
+			title={defaultConfig.pricing.title}
+			description={defaultConfig.pricing.description}
+			items={defaultConfig.pricing.items}
+		/>
+	</main>
+	<Footer />
+</BaseLayout>

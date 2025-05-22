@@ -1,0 +1,91 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  ctaText?: string;
+  ctaLink?: string;
+  imageSrc?: string;
+}
+
+const { 
+  title = "Bienvenue sur notre site",
+  description = "Découvrez nos services et solutions innovantes",
+  ctaText = "En savoir plus",
+  ctaLink = "/contact",
+  imageSrc = "/images/hero-image.jpg"
+} = Astro.props;
+---
+
+<section class="relative min-h-screen flex items-center bg-gradient-to-br from-blue-50 to-indigo-50">
+  <div class="container mx-auto px-4 py-20">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <!-- Content -->
+      <div class="space-y-8">
+        <h1 class="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
+          {title}
+        </h1>
+        <p class="text-xl text-gray-600 leading-relaxed">
+          {description}
+        </p>
+        <div class="flex gap-4">
+          <a 
+            href={ctaLink}
+            class="inline-block px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+          >
+            {ctaText}
+          </a>
+          <a 
+            href="/services"
+            class="inline-block px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-50 transition-colors border border-blue-600"
+          >
+            Nos services
+          </a>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="relative">
+        <img 
+          src={imageSrc} 
+          alt="Hero illustration" 
+          class="w-full h-auto rounded-2xl shadow-2xl"
+        />
+        <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-yellow-400 rounded-full opacity-20 blur-2xl"></div>
+        <div class="absolute -top-6 -right-6 w-32 h-32 bg-blue-400 rounded-full opacity-20 blur-2xl"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Decorative elements -->
+  <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+    <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+    <div class="absolute top-1/3 right-1/4 w-64 h-64 bg-yellow-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+    <div class="absolute bottom-1/4 left-1/3 w-64 h-64 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+  </div>
+</section>
+
+<style>
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+</style> 

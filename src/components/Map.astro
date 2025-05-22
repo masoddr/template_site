@@ -1,0 +1,40 @@
+---
+interface Props {
+  title?: string;
+  address?: string;
+  mapUrl?: string;
+}
+
+const { 
+  title = "Notre Localisation",
+  address = "123 rue Example, 75000 Paris",
+  mapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9916256937595!2d2.292292615509614!3d48.85837007928757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0!2sTour%20Eiffel!5e0!3m2!1sfr!2sfr!4v1647874586708!5m2!1sfr!2sfr"
+} = Astro.props;
+---
+
+<section class="py-20 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-gray-900 mb-4">
+        {title}
+      </h2>
+      <p class="text-xl text-gray-600">
+        {address}
+      </p>
+    </div>
+    
+    <div class="w-full h-[500px] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+      <iframe 
+        src={mapUrl}
+        width="100%" 
+        height="100%" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade"
+        class="rounded-2xl"
+        title="Carte Google Maps"
+      ></iframe>
+    </div>
+  </div>
+</section> 
