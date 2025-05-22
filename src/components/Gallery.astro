@@ -1,0 +1,81 @@
+---
+interface GalleryItem {
+  image: string;
+  title: string;
+  description: string;
+  year?: string;
+}
+
+interface Props {
+  title?: string;
+  description?: string;
+  items: GalleryItem[];
+}
+
+const {
+  title = "Notre Galerie",
+  description = "Découvrez nos créations et restaurations",
+  items = [
+    {
+      image: "/images/gallery/bike-1.jpg",
+      title: "Peugeot PX-10",
+      description: "Restauration complète d'un classique des années 70",
+      year: "1972"
+    },
+    {
+      image: "/images/gallery/bike-2.jpg",
+      title: "Raleigh Professional",
+      description: "Vélo de course sur mesure",
+      year: "2023"
+    },
+    {
+      image: "/images/gallery/bike-3.jpg",
+      title: "Gitane Tour de France",
+      description: "Restauration premium avec finitions artisanales",
+      year: "1968"
+    }
+  ]
+} = Astro.props;
+---
+
+<section class="py-20 bg-[#F5F5F0]">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-[#2C3E50] mb-4">
+        {title}
+      </h2>
+      <p class="text-xl text-[#7F8C8D] max-w-2xl mx-auto">
+        {description}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {items.map((item) => (
+        <div class="group relative overflow-hidden rounded-lg shadow-lg bg-white">
+          <div class="aspect-w-16 aspect-h-9 overflow-hidden">
+            <img
+              src={item.image}
+              alt={item.title}
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="text-xl font-bold text-[#2C3E50]">
+                {item.title}
+              </h3>
+              {item.year && (
+                <span class="text-sm text-[#E74C3C] font-medium">
+                  {item.year}
+                </span>
+              )}
+            </div>
+            <p class="text-[#7F8C8D]">
+              {item.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section> 

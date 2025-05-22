@@ -8,21 +8,51 @@ import Testimonials from '../components/Testimonials.astro';
 import Map from '../components/Map.astro';
 import BusinessHours from '../components/BusinessHours.astro';
 import Pricing from '../components/Pricing.astro';
+import Gallery from '../components/Gallery.astro';
+import Story from '../components/Story.astro';
 import { defaultConfig } from '../config/site';
+
+const galleryItems = [
+	{
+		image: "/images/gallery/bike-1.jpg",
+		title: "Peugeot PX-10",
+		description: "Restauration complète d'un classique des années 70",
+		year: "1972"
+	},
+	{
+		image: "/images/gallery/bike-2.jpg",
+		title: "Raleigh Professional",
+		description: "Vélo de course sur mesure",
+		year: "2023"
+	},
+	{
+		image: "/images/gallery/bike-3.jpg",
+		title: "Gitane Tour de France",
+		description: "Restauration premium avec finitions artisanales",
+		year: "1968"
+	}
+];
 ---
 
 <BaseLayout>
 	<Header />
-	<main>
+	<main class="bg-[#F5F5F0]">
 		<Hero 
-			title="Transformez vos idées en réalité"
-			description="Nous créons des solutions web innovantes et performantes pour propulser votre entreprise vers le succès."
-			ctaText="Démarrer un projet"
+			title="Artisanat de vélos vintage sur mesure"
+			description="Transformez votre passion en réalité avec nos créations uniques"
+			ctaText="Construire mon vélo"
 			ctaLink="/contact"
-			imageSrc="/images/hero-illustration.svg"
+			imageSrc="/images/hero-vintage-bike.jpg"
 		/>
+		<Story />
 		<Services config={defaultConfig} />
+		<Gallery items={galleryItems} />
 		<Testimonials config={defaultConfig} />
+		<Pricing
+			title={defaultConfig.pricing.title}
+			description={defaultConfig.pricing.description}
+			items={defaultConfig.pricing.items}
+		/>
 		<Map 
 			title={defaultConfig.location.title}
 			address={defaultConfig.location.address}
@@ -33,11 +63,20 @@ import { defaultConfig } from '../config/site';
 			hours={defaultConfig.businessHours.hours}
 			timezone={defaultConfig.businessHours.timezone}
 		/>
-		<Pricing
-			title={defaultConfig.pricing.title}
-			description={defaultConfig.pricing.description}
-			items={defaultConfig.pricing.items}
-		/>
 	</main>
 	<Footer />
 </BaseLayout>
+
+<style>
+	:global(body) {
+		@apply bg-[#F5F5F0] text-[#2C3E50];
+	}
+	
+	:global(h1, h2, h3, h4, h5, h6) {
+		@apply font-serif;
+	}
+	
+	:global(p) {
+		@apply font-sans;
+	}
+</style>

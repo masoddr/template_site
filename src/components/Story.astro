@@ -1,0 +1,57 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  content?: string;
+}
+
+const {
+  title = "Notre Histoire",
+  description = "Une passion pour l'artisanat du vélo",
+  image = "/images/story/workshop.jpg",
+  content = "Depuis 2010, notre atelier perpétue la tradition de l'artisanat du vélo. Chaque création est le fruit d'une passion pour la mécanique de précision et l'esthétique intemporelle. Nous combinons techniques traditionnelles et innovations modernes pour donner vie à des vélos uniques, alliant performance et élégance."
+} = Astro.props;
+---
+
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="relative">
+        <div class="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden shadow-xl">
+          <img
+            src={image}
+            alt="Notre atelier"
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-[#E74C3C] rounded-lg transform rotate-12"></div>
+      </div>
+      
+      <div class="lg:pl-12">
+        <h2 class="text-4xl font-bold text-[#2C3E50] mb-4">
+          {title}
+        </h2>
+        <p class="text-xl text-[#7F8C8D] mb-8">
+          {description}
+        </p>
+        <div class="prose prose-lg text-[#34495E]">
+          <p>
+            {content}
+          </p>
+        </div>
+        <div class="mt-8 flex items-center space-x-4">
+          <div class="w-12 h-12 bg-[#F5F5F0] rounded-full flex items-center justify-center">
+            <svg class="w-6 h-6 text-[#E74C3C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <div>
+            <p class="text-sm font-medium text-[#2C3E50]">Plus de 13 ans d'expertise</p>
+            <p class="text-sm text-[#7F8C8D]">Dans l'art de la restauration</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 

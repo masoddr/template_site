@@ -65,113 +65,119 @@ export interface SiteConfig {
 
 // Configuration par défaut
 export const defaultConfig: SiteConfig = {
-  name: "Votre Entreprise",
-  description: "Description de votre entreprise",
+  name: "Rayon Bike",
+  description: "Artisanat de vélos vintage sur mesure",
   logo: "/images/logo.svg",
   contact: {
-    email: "contact@example.com",
+    email: "contact@rayonbike.com",
     phone: "+33 1 23 45 67 89",
-    address: "123 rue Example, 75000 Paris"
+    address: "15 rue du Vélocipède, 75011 Paris"
   },
   social: {
-    twitter: "https://twitter.com",
-    linkedin: "https://linkedin.com",
-    facebook: "https://facebook.com",
-    instagram: "https://instagram.com"
+    instagram: "https://instagram.com/rayonbike",
+    facebook: "https://facebook.com/rayonbike"
   },
   services: {
-    title: "Nos Services",
-    description: "Découvrez nos services professionnels",
+    title: "Notre Savoir-Faire",
+    description: "Découvrez notre approche artisanale de la construction de vélos",
     items: [
       {
-        title: "Service 1",
-        description: "Description du service 1",
-        icon: "service-1"
+        title: "Restauration Vintage",
+        description: "Renaissance de vélos classiques avec des matériaux d'époque",
+        icon: "restoration"
       },
       {
-        title: "Service 2",
-        description: "Description du service 2",
-        icon: "service-2"
+        title: "Vélos Sur Mesure",
+        description: "Création de vélos uniques adaptés à vos besoins",
+        icon: "custom"
       },
       {
-        title: "Service 3",
-        description: "Description du service 3",
-        icon: "service-3"
+        title: "Entretien Expert",
+        description: "Service d'entretien spécialisé pour vélos vintage",
+        icon: "maintenance"
       }
     ]
   },
   testimonials: [
     {
-      name: "Jean Dupont",
-      role: "Client",
-      content: "Excellent service, je recommande !",
+      name: "Marie Laurent",
+      role: "Cycliste passionnée",
+      content: "Mon vélo vintage restauré est une véritable œuvre d'art. Chaque détail a été soigné avec passion.",
       image: "/images/testimonials/client-1.jpg"
+    },
+    {
+      name: "Thomas Dubois",
+      role: "Collectionneur",
+      content: "Un savoir-faire exceptionnel et une attention aux détails remarquable.",
+      image: "/images/testimonials/client-2.jpg"
     }
   ],
   cta: {
-    title: "Prêt à commencer ?",
-    description: "Contactez-nous dès aujourd'hui",
-    buttonText: "Nous contacter",
+    title: "Créez votre vélo unique",
+    description: "Transformez votre vision en réalité avec notre expertise artisanale",
+    buttonText: "Construire mon vélo",
     buttonLink: "/contact"
   },
   location: {
-    title: "Notre Localisation",
-    address: "123 rue Example, 75000 Paris",
+    title: "Notre Atelier",
+    address: "15 rue du Vélocipède, 75011 Paris",
     mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9916256937595!2d2.292292615509614!3d48.85837007928757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0!2sTour%20Eiffel!5e0!3m2!1sfr!2sfr!4v1647874586708!5m2!1sfr!2sfr"
   },
   businessHours: {
     title: "Horaires d'ouverture",
     timezone: "Europe/Paris",
     hours: [
-      { day: "Lundi", hours: "9h00 - 18h00" },
-      { day: "Mardi", hours: "9h00 - 18h00" },
-      { day: "Mercredi", hours: "9h00 - 18h00" },
-      { day: "Jeudi", hours: "9h00 - 18h00" },
-      { day: "Vendredi", hours: "9h00 - 18h00" },
-      { day: "Samedi", hours: "10h00 - 16h00" },
+      { day: "Lundi", hours: "Fermé", isClosed: true },
+      { day: "Mardi", hours: "10h00 - 19h00" },
+      { day: "Mercredi", hours: "10h00 - 19h00" },
+      { day: "Jeudi", hours: "10h00 - 19h00" },
+      { day: "Vendredi", hours: "10h00 - 19h00" },
+      { day: "Samedi", hours: "10h00 - 18h00" },
       { day: "Dimanche", hours: "Fermé", isClosed: true }
     ]
   },
   pricing: {
-    title: "Nos Tarifs",
-    description: "Découvrez nos différentes formules adaptées à vos besoins",
+    title: "Nos Prestations",
+    description: "Des services adaptés à vos besoins",
     items: [
       {
-        title: "Formule Basique",
-        price: "À partir de 99€",
-        description: "Idéal pour démarrer",
+        title: "Restauration Basique",
+        price: "À partir de 800€",
+        description: "Pour les vélos en bon état",
         features: [
-          "Fonctionnalité 1",
-          "Fonctionnalité 2",
-          "Fonctionnalité 3"
+          "Démontage complet",
+          "Nettoyage et dégraissage",
+          "Remplacement des pièces usées",
+          "Réglage des freins et dérailleurs"
         ],
-        ctaText: "Choisir cette formule",
+        ctaText: "Demander un devis",
         ctaLink: "/contact"
       },
       {
-        title: "Formule Pro",
-        price: "À partir de 199€",
+        title: "Restauration Premium",
+        price: "À partir de 1500€",
         description: "Notre formule la plus populaire",
         features: [
           "Tout de la formule Basique",
-          "Fonctionnalité 4",
-          "Fonctionnalité 5",
-          "Fonctionnalité 6"
+          "Peinture personnalisée",
+          "Pièces d'origine restaurées",
+          "Selle en cuir sur mesure",
+          "Garantie 1 an"
         ],
         isPopular: true,
-        ctaText: "Choisir cette formule",
+        ctaText: "Demander un devis",
         ctaLink: "/contact"
       },
       {
-        title: "Formule Premium",
-        price: "Sur mesure",
-        description: "Solution personnalisée",
+        title: "Vélo Sur Mesure",
+        price: "Sur devis",
+        description: "Création unique",
         features: [
-          "Tout de la formule Pro",
-          "Fonctionnalité 7",
-          "Fonctionnalité 8",
-          "Fonctionnalité 9",
-          "Support prioritaire"
+          "Étude personnalisée",
+          "Cadre sur mesure",
+          "Composants haut de gamme",
+          "Finitions artisanales",
+          "Accompagnement complet"
         ],
         ctaText: "Nous contacter",
         ctaLink: "/contact"
