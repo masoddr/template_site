@@ -1,0 +1,161 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const honoraires = [
+  {
+    title: "Consultation",
+    description: "Premier rendez-vous pour évaluer votre situation et définir une stratégie",
+    tarifs: [
+      "Consultation initiale : 150€ TTC",
+      "Durée : 1 heure"
+    ]
+  },
+  {
+    title: "Droit Pénal",
+    description: "Assistance et représentation en matière pénale",
+    tarifs: [
+      "Assistance lors d'une garde à vue : à partir de 1 500€ TTC",
+      "Défense devant le tribunal correctionnel : à partir de 2 000€ TTC",
+      "Défense devant la cour d'assises : à partir de 5 000€ TTC"
+    ]
+  },
+  {
+    title: "Droit de la Famille",
+    description: "Accompagnement dans les procédures familiales",
+    tarifs: [
+      "Divorce par consentement mutuel : à partir de 2 500€ TTC",
+      "Divorce contentieux : à partir de 3 500€ TTC",
+      "Procédure de garde d'enfants : à partir de 2 000€ TTC"
+    ]
+  },
+  {
+    title: "Droit des Affaires",
+    description: "Conseil et représentation en matière commerciale",
+    tarifs: [
+      "Création de société : à partir de 1 500€ TTC",
+      "Rédaction de contrats : à partir de 800€ TTC",
+      "Contentieux commercial : à partir de 2 500€ TTC"
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="Honoraires | Cabinet d'Avocats à Toulouse"
+  description="Découvrez nos honoraires et modalités de paiement. Notre cabinet d'avocats à Toulouse vous propose des tarifs transparents et adaptés à votre situation."
+>
+  <!-- Hero Section -->
+  <section class="bg-gray-900 text-white py-20">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl md:text-5xl font-serif font-bold mb-6">
+        Nos honoraires
+      </h1>
+      <p class="text-xl text-gray-300 max-w-3xl">
+        Des tarifs transparents et adaptés à votre situation, pour un accompagnement
+        juridique de qualité.
+      </p>
+    </div>
+  </section>
+
+  <!-- Tarifs -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-8">
+        {honoraires.map((domaine) => (
+          <div class="bg-white p-8 rounded-lg shadow-sm">
+            <h2 class="text-2xl font-serif font-bold mb-4">{domaine.title}</h2>
+            <p class="text-gray-600 mb-6">{domaine.description}</p>
+            <ul class="space-y-3">
+              {domaine.tarifs.map((tarif) => (
+                <li class="flex items-start">
+                  <svg
+                    class="w-6 h-6 text-blue-600 mr-2 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span class="text-gray-600">{tarif}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Modalités de paiement -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-serif font-bold text-center mb-12">
+        Modalités de paiement
+      </h2>
+      <div class="max-w-3xl mx-auto">
+        <div class="bg-white p-8 rounded-lg shadow-sm space-y-6">
+          <div>
+            <h3 class="text-xl font-serif font-bold mb-4">Aide juridictionnelle</h3>
+            <p class="text-gray-600">
+              Si vous remplissez les conditions de ressources, vous pouvez bénéficier
+              de l'aide juridictionnelle. Cette aide permet de prendre en charge
+              tout ou partie de vos frais d'avocat.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-serif font-bold mb-4">Protection juridique</h3>
+            <p class="text-gray-600">
+              Votre assurance peut inclure une protection juridique qui prend en
+              charge vos frais d'avocat. N'hésitez pas à nous consulter pour
+              vérifier votre couverture.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-serif font-bold mb-4">Modes de paiement</h3>
+            <ul class="text-gray-600 space-y-2">
+              <li>• Virement bancaire</li>
+              <li>• Chèque</li>
+              <li>• Espèces (dans la limite légale)</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-serif font-bold mb-4">Convention d'honoraires</h3>
+            <p class="text-gray-600">
+              Une convention d'honoraires est systématiquement établie pour
+              définir les modalités de notre collaboration. Cette convention
+              précise les honoraires, les modalités de paiement et les frais
+              annexes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="py-16 bg-gray-900 text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-serif font-bold mb-6">
+        Vous avez des questions sur nos honoraires ?
+      </h2>
+      <p class="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">
+        Notre équipe est à votre disposition pour vous renseigner sur nos tarifs
+        et vous proposer un devis personnalisé.
+      </p>
+      <a
+        href="/contact"
+        class="inline-block bg-white text-gray-900 px-8 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors"
+      >
+        Nous contacter
+      </a>
+    </div>
+  </section>
+</BaseLayout> 

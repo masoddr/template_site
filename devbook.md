@@ -150,6 +150,72 @@ module.exports = {
 - Lien de retour à l'accueil
 - Design cohérent avec le site
 
+## 🧱 Structure (pages et sections clés)
+
+### Accueil
+- Accroche claire (« Cabinet d'avocats en droit XXX à Toulouse »)
+- Mise en avant des domaines d'expertise
+- Bouton "Contact" ou "Prendre rendez-vous"
+
+### Cabinet / À propos
+- Présentation de l'avocat.e ou de l'équipe
+- Philosophie du cabinet
+- Parcours académique et professionnel
+
+### Domaines d'intervention
+- Liste des spécialités (Droit pénal, droit de la famille, droit des affaires, etc.)
+- Courts descriptifs (150–300 mots par domaine)
+
+### Honoraires
+- Mention de la transparence / forfaits possibles
+- Tarification à l'heure, au forfait, ou selon conventions
+
+### Actualités / Blog (optionnel mais fréquent)
+- Articles de vulgarisation ou d'actualité juridique
+
+### Contact
+- Formulaire (nom, email, message)
+- Adresse, numéro, email
+- Carte intégrée (Google Maps)
+
+## 🎨 Design & Atmosphère
+
+### Couleurs
+- Tons sobres : blanc, gris anthracite, bleu foncé, bordeaux
+- Effet haut de gamme : police serif ou semi-serif, peu de fioritures
+- Touches dorées ou cuivre parfois pour évoquer la confiance/luxe
+
+### Typographie
+- Titres en majuscule serif ou semi-serif
+- Corps en sans-serif sobre
+
+### Éléments visuels
+- Portrait(s) professionnel(s) en noir et blanc ou filtre désaturé
+- Photos du cabinet, de la ville, ou de livres de droit (toujours élégantes, souvent avec flou ou profondeur de champ)
+- Pas de vidéos, ou très rarement
+
+## ✍️ Ton & Contenu rédactionnel
+
+### Ton
+- Sérieux, rassurant, accessible
+- Vocabulaire juridique maîtrisé, mais vulgarisé
+- Mots clés récurrents : « accompagnement », « écoute », « rigueur », « transparence », « efficacité »
+
+### Accroches fréquentes
+- « Vous accompagner avec rigueur et humanité »
+- « Un cabinet à l'écoute de vos besoins »
+- « Des solutions juridiques claires et efficaces »
+
+## 📦 Bonus : sections différenciantes possibles
+
+Modules optionnels à prévoir dans le template :
+
+- ✅ Avis clients (testimonials avec photos ou initiales)
+- ✅ Prise de rendez-vous en ligne (Calendly ou plugin équivalent)
+- ✅ Bloc "Ils parlent de nous" avec logos presse/barreau
+- ✅ Engagements (charte de qualité, confidentialité, délais)
+- ✅ FAQ juridique (utile pour le SEO + rassurant)
+
 ## 🗂️ Structure du projet
 /src
   /components

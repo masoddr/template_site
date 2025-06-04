@@ -1,27 +1,28 @@
 ---
 // Header.astro
 const menuItems = [
-  { text: 'Accueil', href: '/' },
-  { text: 'Services', href: '/services' },
-  { text: 'À propos', href: '/about' },
-  { text: 'Contact', href: '/contact' }
+  { href: "/", text: "Accueil" },
+  { href: "/a-propos", text: "À propos" },
+  { href: "/domaines", text: "Domaines d'intervention" },
+  { href: "/honoraires", text: "Honoraires" },
+  { href: "/contact", text: "Contact" },
 ];
 ---
 
-<header class="fixed w-full bg-white/80 backdrop-blur-sm shadow-sm z-50">
+<header id="main-header" class="bg-transparent fixed w-full top-0 left-0 z-50 transition-all duration-500">
   <nav class="container mx-auto px-4 py-4">
     <div class="flex justify-between items-center">
       <!-- Logo -->
-      <a href="/" class="text-2xl font-bold text-gray-800">
-        Logo
+      <a href="/" class="flex items-center gap-2">
+        <img src="/images/logo.png" alt="Logo Dupont Associés" class="max-h-12 w-32 md:w-40 object-contain" />
       </a>
 
       <!-- Desktop Menu -->
       <div class="hidden md:flex space-x-8">
-        {menuItems.map(item => (
-          <a 
+        {menuItems.map((item) => (
+          <a
             href={item.href}
-            class="text-gray-600 hover:text-gray-900 transition-colors"
+            class="text-white hover:text-yellow-400 transition-colors"
           >
             {item.text}
           </a>
@@ -29,51 +30,83 @@ const menuItems = [
       </div>
 
       <!-- Mobile Menu Button -->
-      <button 
+      <button
+        class="md:hidden"
         id="mobile-menu-button"
-        class="md:hidden text-gray-600 hover:text-gray-900"
         aria-label="Menu"
+        type="button"
       >
-        <svg 
-          xmlns="http://www.w3.org/2000/svg" 
-          class="h-6 w-6" 
-          fill="none" 
-          viewBox="0 0 24 24" 
+        <svg
+          class="w-8 h-8 text-white"
+          fill="none"
           stroke="currentColor"
+          viewBox="0 0 24 24"
         >
-          <path 
-            stroke-linecap="round" 
-            stroke-linejoin="round" 
-            stroke-width="2" 
-            d="M4 6h16M4 12h16M4 18h16" 
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
           />
         </svg>
       </button>
     </div>
-
-    <!-- Mobile Menu -->
-    <div 
-      id="mobile-menu"
-      class="hidden md:hidden mt-4 pb-4"
-    >
-      {menuItems.map(item => (
-        <a 
-          href={item.href}
-          class="block py-2 text-gray-600 hover:text-gray-900 transition-colors"
-        >
-          {item.text}
-        </a>
-      ))}
-    </div>
   </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-95 z-50 flex flex-col items-center justify-center space-y-8 transition-all duration-300 opacity-0 pointer-events-none">
+    <button id="close-mobile-menu" class="absolute top-6 right-6 text-white text-4xl" aria-label="Fermer le menu">&times;</button>
+    {menuItems.map((item) => (
+      <a
+        href={item.href}
+        class="text-white text-2xl font-serif font-semibold hover:text-yellow-400 transition-colors"
+      >
+        {item.text}
+      </a>
+    ))}
+  </div>
 </header>
 
 <script>
   // Mobile menu toggle
   const mobileMenuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+  const closeMobileMenu = document.getElementById('close-mobile-menu');
 
   mobileMenuButton?.addEventListener('click', () => {
-    mobileMenu?.classList.toggle('hidden');
+    mobileMenuOverlay?.classList.remove('opacity-0', 'pointer-events-none');
+    mobileMenuOverlay?.classList.add('opacity-100');
   });
-</script> 
+  closeMobileMenu?.addEventListener('click', () => {
+    mobileMenuOverlay?.classList.add('opacity-0', 'pointer-events-none');
+    mobileMenuOverlay?.classList.remove('opacity-100');
+  });
+  // Fermer le menu au clic sur un lien
+  mobileMenuOverlay?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenuOverlay?.classList.add('opacity-0', 'pointer-events-none');
+      mobileMenuOverlay?.classList.remove('opacity-100');
+    });
+  });
+
+  let lastScroll = 0;
+  const header = document.getElementById('main-header');
+  window.addEventListener('scroll', () => {
+    if (!header) return;
+    const currentScroll = window.pageYOffset;
+    if (currentScroll > lastScroll && currentScroll > 50) {
+      // Scrolling down
+      header.classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
+    } else {
+      // Scrolling up
+      header.classList.remove('opacity-0', '-translate-y-full', 'pointer-events-none');
+    }
+    lastScroll = currentScroll;
+  });
+</script>
+
+<style>
+  #main-header {
+    transition: opacity 0.5s, transform 0.5s;
+  }
+</style> 

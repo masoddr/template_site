@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="À propos | Cabinet d'Avocats à Toulouse"
+  description="Découvrez notre cabinet d'avocats à Toulouse, notre histoire, nos valeurs et notre équipe d'avocats expérimentés."
+>
+  <!-- Hero Section -->
+  <section class="bg-gray-900 text-white py-20">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl md:text-5xl font-serif font-bold mb-6">
+        Notre cabinet
+      </h1>
+      <p class="text-xl text-gray-300 max-w-3xl">
+        Une équipe d'avocats passionnés, engagés pour défendre vos droits et vous
+        accompagner dans vos démarches juridiques.
+      </p>
+    </div>
+  </section>
+
+  <!-- Notre histoire -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-serif font-bold mb-6">Notre histoire</h2>
+          <p class="text-gray-600 mb-6">
+            Fondé en 2010, notre cabinet d'avocats s'est construit sur des valeurs
+            d'excellence, d'éthique et de proximité. Depuis plus de 10 ans, nous
+            accompagnons nos clients avec rigueur et humanité dans leurs démarches
+            juridiques.
+          </p>
+          <p class="text-gray-600">
+            Notre cabinet s'est développé autour d'une vision commune : offrir un
+            service juridique de qualité, accessible et personnalisé. Nous
+            croyons en l'importance d'une relation de confiance avec nos clients
+            et nous nous engageons à les accompagner de manière transparente et
+            efficace.
+          </p>
+        </div>
+        <div class="relative h-96">
+          <img
+            src="/images/histoire.jpg"
+            alt="Notre cabinet d'avocats"
+            class="absolute inset-0 w-full h-full object-cover rounded-lg"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nos valeurs -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-serif font-bold text-center mb-12">
+        Nos valeurs
+      </h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-serif font-bold mb-4">Excellence</h3>
+          <p class="text-gray-600">
+            Nous nous engageons à fournir un service juridique de la plus haute
+            qualité, en nous tenant à jour des évolutions du droit et en
+            développant constamment notre expertise.
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-serif font-bold mb-4">Éthique</h3>
+          <p class="text-gray-600">
+            Nous exerçons notre profession avec intégrité, en respectant les
+            règles déontologiques et en privilégiant toujours l'intérêt de nos
+            clients.
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-serif font-bold mb-4">Proximité</h3>
+          <p class="text-gray-600">
+            Nous croyons en l'importance d'une relation de confiance avec nos
+            clients. Nous sommes à leur écoute et nous les accompagnons de manière
+            personnalisée.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notre équipe -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-serif font-bold text-center mb-12">
+        Notre équipe
+      </h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Avocat 1 -->
+        <div class="text-center">
+          <div class="relative w-48 h-48 mx-auto mb-4">
+            <img
+              src="/images/avocat1.jpg"
+              alt="Maître Jean Dupont"
+              class="absolute inset-0 w-full h-full object-cover rounded-full"
+            />
+          </div>
+          <h3 class="text-xl font-serif font-bold mb-2">Maître Jean Dupont</h3>
+          <p class="text-gray-600 mb-2">Droit Pénal</p>
+          <p class="text-sm text-gray-500">
+            Plus de 15 ans d'expérience en droit pénal
+          </p>
+        </div>
+
+        <!-- Avocat 2 -->
+        <div class="text-center">
+          <div class="relative w-48 h-48 mx-auto mb-4">
+            <img
+              src="/images/avocat2.jpg"
+              alt="Maître Marie Martin"
+              class="absolute inset-0 w-full h-full object-cover rounded-full"
+            />
+          </div>
+          <h3 class="text-xl font-serif font-bold mb-2">Maître Marie Martin</h3>
+          <p class="text-gray-600 mb-2">Droit de la Famille</p>
+          <p class="text-sm text-gray-500">
+            Spécialiste en droit familial depuis 10 ans
+          </p>
+        </div>
+
+        <!-- Avocat 3 -->
+        <div class="text-center">
+          <div class="relative w-48 h-48 mx-auto mb-4">
+            <img
+              src="/images/avocat3.jpg"
+              alt="Maître Pierre Durand"
+              class="absolute inset-0 w-full h-full object-cover rounded-full"
+            />
+          </div>
+          <h3 class="text-xl font-serif font-bold mb-2">Maître Pierre Durand</h3>
+          <p class="text-gray-600 mb-2">Droit des Affaires</p>
+          <p class="text-sm text-gray-500">
+            Expert en droit commercial et des sociétés
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="py-16 bg-gray-900 text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-serif font-bold mb-6">
+        Vous souhaitez nous rencontrer ?
+      </h2>
+      <p class="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">
+        Notre équipe est à votre disposition pour répondre à vos questions et vous
+        accompagner dans vos démarches.
+      </p>
+      <a
+        href="/contact"
+        class="inline-block bg-white text-gray-900 px-8 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors"
+      >
+        Prendre rendez-vous
+      </a>
+    </div>
+  </section>
+</BaseLayout> 

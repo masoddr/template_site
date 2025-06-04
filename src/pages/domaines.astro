@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const domaines = [
+  {
+    id: "droit-penal",
+    title: "Droit Pénal",
+    description: "Notre cabinet vous accompagne dans toutes vos démarches en matière pénale, de l'assistance lors des gardes à vue à la représentation devant les juridictions pénales.",
+    services: [
+      "Assistance lors des gardes à vue",
+      "Défense devant les juridictions pénales",
+      "Conseil et représentation des victimes",
+      "Droit pénal des affaires",
+      "Droit pénal routier"
+    ],
+    image: "/images/droit-penal.jpg"
+  },
+  {
+    id: "droit-famille",
+    title: "Droit de la Famille",
+    description: "Nous vous accompagnons dans les moments importants de votre vie familiale, en vous apportant conseil et soutien juridique.",
+    services: [
+      "Divorce et séparation",
+      "Garde d'enfants et droit de visite",
+      "Pension alimentaire",
+      "Succession et donation",
+      "Protection des majeurs"
+    ],
+    image: "/images/droit-famille.jpg"
+  },
+  {
+    id: "droit-affaires",
+    title: "Droit des Affaires",
+    description: "Notre expertise en droit des affaires vous permet de sécuriser vos opérations commerciales et de défendre vos intérêts en cas de litige.",
+    services: [
+      "Création et structuration de sociétés",
+      "Contrats commerciaux",
+      "Litiges commerciaux",
+      "Droit de la concurrence",
+      "Droit de la propriété intellectuelle"
+    ],
+    image: "/images/droit-affaires.jpg"
+  }
+];
+---
+
+<BaseLayout
+  title="Domaines d'intervention | Cabinet d'Avocats à Toulouse"
+  description="Découvrez nos domaines d'expertise en droit pénal, droit de la famille et droit des affaires. Notre cabinet d'avocats à Toulouse vous accompagne dans vos démarches juridiques."
+>
+  <!-- Hero Section -->
+  <section class="bg-gray-900 text-white py-20">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl md:text-5xl font-serif font-bold mb-6">
+        Nos domaines d'intervention
+      </h1>
+      <p class="text-xl text-gray-300 max-w-3xl">
+        Notre cabinet vous accompagne dans vos démarches juridiques avec expertise
+        et professionnalisme.
+      </p>
+    </div>
+  </section>
+
+  <!-- Domaines d'intervention -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="space-y-24">
+        {domaines.map((domaine) => (
+          <div class="grid md:grid-cols-2 gap-12 items-center" id={domaine.id}>
+            <div class="order-2 md:order-1">
+              <h2 class="text-3xl font-serif font-bold mb-6">{domaine.title}</h2>
+              <p class="text-gray-600 mb-8">{domaine.description}</p>
+              <h3 class="text-xl font-serif font-bold mb-4">Nos services</h3>
+              <ul class="space-y-3">
+                {domaine.services.map((service) => (
+                  <li class="flex items-start">
+                    <svg
+                      class="w-6 h-6 text-blue-600 mr-2 flex-shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    <span class="text-gray-600">{service}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div class="order-1 md:order-2">
+              <div class="relative h-96">
+                <img
+                  src={domaine.image}
+                  alt={domaine.title}
+                  class="absolute inset-0 w-full h-full object-cover rounded-lg"
+                />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="py-16 bg-gray-900 text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-serif font-bold mb-6">
+        Besoin d'un conseil juridique ?
+      </h2>
+      <p class="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">
+        Notre équipe d'avocats est à votre disposition pour répondre à vos
+        questions et vous accompagner dans vos démarches.
+      </p>
+      <a
+        href="/contact"
+        class="inline-block bg-white text-gray-900 px-8 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors"
+      >
+        Nous contacter
+      </a>
+    </div>
+  </section>
+</BaseLayout> 

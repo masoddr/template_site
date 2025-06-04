@@ -7,22 +7,134 @@ import Map from '../components/Map.astro';
 import { defaultConfig } from '../config/site';
 ---
 
-<BaseLayout>
-	<Header />
-	<main>
-		<Hero 
-			title="Transformez vos idées en réalité"
-			description="Nous créons des solutions web innovantes et performantes pour propulser votre entreprise vers le succès."
-			ctaText="Démarrer un projet"
-			ctaLink="/contact"
-			imageSrc="/images/hero-illustration.svg"
-		/>
-		
-		<Map 
-			title={defaultConfig.location.title}
-			address={defaultConfig.location.address}
-			mapUrl={defaultConfig.location.mapUrl}
-		/>
-	</main>
-	<Footer />
+<BaseLayout
+	title="Cabinet d'Avocats à Toulouse | Droit Pénal, Droit de la Famille"
+	description="Cabinet d'avocats spécialisé en droit pénal et droit de la famille à Toulouse. Expertise juridique, accompagnement personnalisé et solutions efficaces pour vos dossiers."
+>
+	<Hero />
+
+	<!-- Présentation Cabinet Dupont Associés -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4 max-w-5xl">
+			<div class="grid md:grid-cols-2 gap-12 items-center">
+				<!-- Texte -->
+				<div>
+					<h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-8 text-center md:text-left">Dupont Associés</h2>
+					<div class="space-y-6 text-gray-700 text-lg leading-relaxed">
+						<p>Depuis plus de 40 ans, le cabinet Dupont Associés accompagne ses clients à Paris et en Île-de-France dans les domaines du droit social, du droit pénal et du droit civil.</p>
+						<p>Notre structure à taille humaine privilégie l'écoute, la proximité et la réactivité, que vous soyez particulier, entrepreneur individuel ou société.</p>
+						<p>Notre équipe pluridisciplinaire, animée par la passion du droit et l'exigence d'excellence, met son expertise au service de la défense de vos intérêts et de la recherche de solutions concrètes.</p>
+						<p>Nous intervenons aussi bien en conseil qu'en contentieux, avec une approche personnalisée et rigoureuse de chaque dossier.</p>
+						<p>La prise de rendez-vous est rapide et nous nous engageons à assurer un suivi attentif et transparent de votre situation, à chaque étape de la procédure.</p>
+						<p>Notre engagement : vous accompagner avec efficacité, humanité et discrétion dans la gestion de vos problématiques juridiques.</p>
+					</div>
+				</div>
+				<!-- Photos collaborateurs -->
+				<div class="flex justify-center md:justify-end">
+					<div class="flex flex-col items-center gap-4 md:gap-6">
+						<img src="/images/collab1.jpg" alt="Collaborateur 1" class="w-40 h-56 object-cover rounded-xl shadow-md border-4 border-white mb-2 md:mb-4" />
+						<div class="flex flex-row gap-6 md:gap-8">
+							<img src="/images/collab2.jpg" alt="Collaborateur 2" class="w-48 h-64 object-cover rounded-xl shadow-lg border-4 border-white" />
+							<img src="/images/collab3.jpg" alt="Collaborateur 3" class="w-40 h-56 object-cover rounded-xl shadow-md border-4 border-white" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Domaines d'expertise -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<h2 class="text-3xl font-serif font-bold text-center mb-12">
+				Notre domaines d'expertise
+			</h2>
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<!-- Droit Pénal -->
+				<div class="bg-white p-6 rounded-lg shadow-sm">
+					<h3 class="text-xl font-serif font-bold mb-4">Droit Pénal</h3>
+					<p class="text-gray-600 mb-4">
+						Défense et conseil en matière pénale, assistance lors des gardes à vue,
+						représentation devant les juridictions pénales.
+					</p>
+					<a href="/domaines/droit-penal" class="text-blue-600 hover:text-blue-800">
+						En savoir plus →
+					</a>
+				</div>
+
+				<!-- Droit de la Famille -->
+				<div class="bg-white p-6 rounded-lg shadow-sm">
+					<h3 class="text-xl font-serif font-bold mb-4">Droit de la Famille</h3>
+					<p class="text-gray-600 mb-4">
+						Divorce, garde d'enfants, pension alimentaire, succession, protection
+						des majeurs.
+					</p>
+					<a href="/domaines/droit-famille" class="text-blue-600 hover:text-blue-800">
+						En savoir plus →
+					</a>
+				</div>
+
+				<!-- Droit des Affaires -->
+				<div class="bg-white p-6 rounded-lg shadow-sm">
+					<h3 class="text-xl font-serif font-bold mb-4">Droit des Affaires</h3>
+					<p class="text-gray-600 mb-4">
+						Conseil aux entreprises, contrats commerciaux, litiges commerciaux,
+						droit des sociétés.
+					</p>
+					<a href="/domaines/droit-affaires" class="text-blue-600 hover:text-blue-800">
+						En savoir plus →
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- À propos -->
+	<section class="py-16">
+		<div class="container mx-auto px-4">
+			<div class="grid md:grid-cols-2 gap-12 items-center">
+				<div>
+					<h2 class="text-3xl font-serif font-bold mb-6">Notre cabinet</h2>
+					<p class="text-gray-600 mb-6">
+						Fondé en 2010, notre cabinet d'avocats s'est construit sur des valeurs
+						d'excellence, d'éthique et de proximité. Notre équipe d'avocats
+						expérimentés met son expertise à votre service pour vous accompagner
+						dans vos démarches juridiques.
+					</p>
+					<a
+						href="/a-propos"
+						class="inline-block bg-gray-900 text-white px-8 py-3 rounded-md font-medium hover:bg-gray-800 transition-colors"
+					>
+						Découvrir notre cabinet
+					</a>
+				</div>
+				<div class="relative h-96">
+					<img
+						src="/images/cabinet.jpg"
+						alt="Notre cabinet d'avocats"
+						class="absolute inset-0 w-full h-full object-cover rounded-lg"
+					/>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact CTA -->
+	<section class="py-16 bg-gray-900 text-white">
+		<div class="container mx-auto px-4 text-center">
+			<h2 class="text-3xl font-serif font-bold mb-6">
+				Besoin d'un conseil juridique ?
+			</h2>
+			<p class="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">
+				Notre équipe d'avocats est à votre disposition pour répondre à vos
+				questions et vous accompagner dans vos démarches.
+			</p>
+			<a
+				href="/contact"
+				class="inline-block bg-white text-gray-900 px-8 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors"
+			>
+				Nous contacter
+			</a>
+		</div>
+	</section>
 </BaseLayout>

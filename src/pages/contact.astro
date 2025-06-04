@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact | Cabinet d'Avocats à Toulouse"
+  description="Contactez notre cabinet d'avocats à Toulouse. Notre équipe est à votre disposition pour répondre à vos questions et vous accompagner dans vos démarches juridiques."
+>
+  <!-- Hero Section -->
+  <section class="bg-gray-900 text-white py-20">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl md:text-5xl font-serif font-bold mb-6">
+        Contactez-nous
+      </h1>
+      <p class="text-xl text-gray-300 max-w-3xl">
+        Notre équipe est à votre disposition pour répondre à vos questions et vous
+        accompagner dans vos démarches.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Formulaire de contact -->
+        <div>
+          <h2 class="text-3xl font-serif font-bold mb-8">Envoyez-nous un message</h2>
+          <form
+            class="space-y-6"
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+          >
+            <input type="hidden" name="form-name" value="contact" />
+            <div class="hidden">
+              <input name="bot-field" />
+            </div>
+
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700 mb-1">
+                Nom complet
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            <div>
+              <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">
+                Téléphone
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            <div>
+              <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">
+                Sujet
+              </label>
+              <select
+                id="subject"
+                name="subject"
+                required
+                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                <option value="">Sélectionnez un sujet</option>
+                <option value="droit-penal">Droit Pénal</option>
+                <option value="droit-famille">Droit de la Famille</option>
+                <option value="droit-affaires">Droit des Affaires</option>
+                <option value="autre">Autre</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700 mb-1">
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                required
+                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-gray-900 text-white px-8 py-3 rounded-md font-medium hover:bg-gray-800 transition-colors"
+            >
+              Envoyer le message
+            </button>
+          </form>
+        </div>
+
+        <!-- Informations de contact -->
+        <div>
+          <h2 class="text-3xl font-serif font-bold mb-8">Nos coordonnées</h2>
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-xl font-serif font-bold mb-4">Adresse</h3>
+              <address class="not-italic text-gray-600">
+                <p>123 Rue du Palais de Justice</p>
+                <p>31000 Toulouse</p>
+              </address>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-serif font-bold mb-4">Téléphone</h3>
+              <p class="text-gray-600">
+                <a href="tel:+33512345678" class="hover:text-gray-900">
+                  05 12 34 56 78
+                </a>
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-serif font-bold mb-4">Email</h3>
+              <p class="text-gray-600">
+                <a href="mailto:contact@cabinet-avocat.fr" class="hover:text-gray-900">
+                  contact@cabinet-avocat.fr
+                </a>
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-serif font-bold mb-4">Horaires d'ouverture</h3>
+              <ul class="text-gray-600 space-y-2">
+                <li>Lundi - Vendredi : 9h00 - 18h00</li>
+                <li>Samedi : Sur rendez-vous</li>
+                <li>Dimanche : Fermé</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Carte -->
+          <div class="mt-8">
+            <h3 class="text-xl font-serif font-bold mb-4">Localisation</h3>
+            <div class="aspect-w-16 aspect-h-9">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2885.650490483123!2d1.4442!3d43.6047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDM2JzE2LjkiTiAxwrAyNiczOS4xIkU!5e0!3m2!1sfr!2sfr!4v1234567890"
+                width="100%"
+                height="300"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                class="rounded-lg"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout> 

@@ -1,72 +1,37 @@
 ---
-interface Props {
-  title: string;
-  description: string;
-  ctaText: string;
-  ctaLink: string;
-  imageSrc?: string;
-}
-
-const { 
-  title,
-  description,
-  ctaText,
-  ctaLink,
-  imageSrc = "/images/hero-illustration.svg"
-} = Astro.props;
+// Composant Hero inspiré du site MB Battikh & Associés
+const phone = "01 XX XX XX XX";
+const domaines = [
+  { label: "Droit pénal général", color: "bg-black-500" },
+  { label: "Droit des affaires", color: "bg-black-500" },
+  { label: "Droit de la famille", color: "bg-black-500" }
+];
 ---
 
-<section class="relative bg-gradient-to-br from-blue-50 to-indigo-50 overflow-hidden">
-  <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
-  
-  <div class="container mx-auto px-4 py-20 md:py-32">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <!-- Contenu textuel -->
-      <div class="relative z-10">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-          {title}
-        </h1>
-        <p class="text-xl text-gray-600 mb-8 max-w-xl">
-          {description}
-        </p>
-        <div class="flex flex-wrap gap-4">
-          <a 
-            href={ctaLink}
-            class="inline-flex items-center px-8 py-4 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors"
-          >
-            {ctaText}
-            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-            </svg>
-          </a>
-          <a 
-            href="#services"
-            class="inline-flex items-center px-8 py-4 rounded-lg bg-white text-gray-900 font-semibold hover:bg-gray-50 transition-colors border border-gray-200"
-          >
-            En savoir plus
-            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-          </a>
-        </div>
-      </div>
+<section class="relative min-h-screen flex items-center justify-center bg-gray-900">
+  <!-- Background image with overlay -->
+  <img src="/images/hero-bg.jpg" alt="Cabinet d'Avocats à Paris" class="absolute inset-0 w-full h-full object-cover opacity-60" />
+  <div class="absolute inset-0 bg-gray-900/70"></div>
 
-      <!-- Image -->
-      <div class="relative">
-        <div class="relative z-10">
-          <img 
-            src={imageSrc} 
-            alt="Hero illustration" 
-            class="w-full h-auto rounded-2xl shadow-2xl"
-            width="600"
-            height="400"
-          />
-        </div>
-        <!-- Éléments décoratifs -->
-        <div class="absolute -top-6 -right-6 w-32 h-32 bg-blue-500 rounded-full opacity-20 blur-2xl"></div>
-        <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-indigo-500 rounded-full opacity-20 blur-2xl"></div>
-      </div>
+  <div class="relative z-10 w-full max-w-4xl mx-auto text-center px-4 py-8 md:py-0">
+    <h1 class="font-['Cinzel',_serif] text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4 md:mb-6 drop-shadow-lg leading-tight md:leading-tight">
+      Cabinet d'Avocats à Paris
+    </h1>
+    <p class="text-base sm:text-lg md:text-xl text-gray-100 mb-6 md:mb-8">
+      Nos avocats vous accompagnent dans les litiges, la résolution de conflits et les procédures pénales, familiales ou commerciales.
+    </p>
+    <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-6 md:mb-8">
+      {domaines.map((domaine) => (
+        <span class="inline-flex items-center px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/10 text-white font-semibold text-sm md:text-base border border-black-500 gap-2">
+          <span class={domaine.color + " w-2 h-2 rounded-full inline-block"}></span>
+          {domaine.label}
+        </span>
+      ))}
     </div>
+    <a href="tel:+331XXXXXXXX" class="inline-flex items-center gap-2 bg-white text-gray-900 px-4 py-2 md:px-6 md:py-3 rounded-md font-medium text-base md:text-lg shadow hover:bg-gray-100 transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 md:w-6 md:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.3 1.2a2 2 0 01-.45 1.95l-.7.7a16.001 16.001 0 006.586 6.586l.7-.7a2 2 0 011.95-.45l1.2.3A2 2 0 0121 16.72V19a2 2 0 01-2 2h-1C9.163 21 3 14.837 3 7V5z" /></svg>
+      {phone}
+    </a>
   </div>
 </section>
 
